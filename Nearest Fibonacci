@@ -1,0 +1,34 @@
+<?php
+
+function fibonacci (int $jumlahBilangan) {
+  # array ini akan digunakan untuk menampung bilangan fibonacci
+  $fibonacci = [];
+
+  if ($jumlahBilangan < 0) {
+    # langsung hentikan fungsi jika $jumlahBilangan kurang dari 0
+    return $fibonacci; 
+  }
+
+  # mulai perulangan
+  for ($i = 0; $i < $jumlahBilangan; $i++) {
+    if ($i < 2) {
+      $bilangan = $i;
+    } else {
+      $bilangan = $fibonacci[$i - 1] + $fibonacci[$i - 2];
+    }
+
+    # tambahkan $bilangan ke dalam array $fibonacci
+    array_push($fibonacci, $bilangan);
+  }
+
+  return $fibonacci;
+}
+
+
+<?php
+
+# panggil fungsi fibonacci dengan berbagai parameter
+echo implode(" ", fibonacci(15)) . '<br>';
+echo implode(" ", fibonacci(1)) . '<br>';
+echo implode(" ", fibonacci(3)) . '<br>';
+echo implode(" ", fibonacci(2)) . '<br>';
